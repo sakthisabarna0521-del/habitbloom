@@ -1,0 +1,95 @@
+.friends-bg{
+  --background:#ffffff;
+  padding:20px;
+}
+
+/* SEARCH */
+
+.search-box input{
+  width:100%;
+  padding:10px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  margin-bottom:20px;
+}
+
+/* SECTION */
+
+.section-title{
+  font-weight:600;
+  margin:15px 0;
+}
+
+/* USER CARD */
+
+.user-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  background:#f7f7f7;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+/* FRIEND CARD */
+
+.friend-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  background:#f4f4f4;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+/* AVATAR */
+
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:black;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* INFO */
+
+.user-info,
+.friend-info{
+  flex:1;
+}
+
+.user-info h4,
+.friend-info h4{
+  margin:0;
+  font-size:14px;
+}
+
+.user-info p,
+.friend-info p{
+  margin:0;
+  font-size:12px;
+  color:#666;
+}
+
+/* FOLLOW BUTTON */
+
+.follow-btn{
+  border:none;
+  background:black;
+  color:white;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.following{
+  background:#e5e5e5;
+  color:black;
+}

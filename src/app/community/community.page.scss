@@ -1,0 +1,102 @@
+/* PAGE */
+
+.community-bg {
+  --background: #ffffff;
+  padding: 25px;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* STATS */
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.stat-card {
+  background: #f3f3f3;
+  border-radius: 20px;
+  padding: 18px;
+  text-align: center;
+  flex: 1;
+  margin: 0 6px;
+}
+
+.stat-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stat-card p {
+  font-size: 12px;
+  color: #777;
+}
+
+
+/* GRID - 3 PER ROW */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 25px;
+  justify-items: center;
+}
+
+/* CIRCLE CARDS */
+.feature-card {
+  width: 200px;
+  height: 200px;
+  background: #000;
+  color: white;
+  border-radius: 50%; /* circle */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.feature-card:hover {
+  transform: scale(1.12);
+}
+
+/* ICON */
+.icon {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+/* TITLE */
+.feature-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* TEXT */
+.feature-card p {
+  display: none; /* hide description for circle cards */
+}

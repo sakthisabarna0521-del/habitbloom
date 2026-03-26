@@ -1,0 +1,83 @@
+#footerCard {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  transition: height 0.5s ease;
+  overflow: hidden;
+  height: 70px;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+}
+
+/* EXPANDED HEIGHT */
+#footerCard.expanded {
+  height: 320px;
+}
+
+/* TOP BAR */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.toggle-icon {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* CONTENT */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.5s ease;
+}
+
+/* SLIDE IN EFFECT */
+#footerCard.expanded .footer-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* COLUMNS */
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-column p,
+.footer-column a {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}

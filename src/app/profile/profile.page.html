@@ -1,0 +1,81 @@
+<ion-content>
+  <div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <div class="profile">
+        <img [src]="user.profile || 'assets/profile.png'"
+             alt="Profile"
+             class="profile-img">
+
+        <h3>{{ user.name }}</h3>
+        <p>{{ user.email }}</p>
+        <small>Last login: {{ lastLogin }}</small>
+      </div>
+
+      <nav class="menu">
+
+        <p class="menu-item" (click)="goToDashboard()">
+          <ion-icon name="home-outline"></ion-icon>
+          Dashboard
+        </p>
+
+        <p class="menu-item" (click)="goToAnalytics()">
+          <ion-icon name="bar-chart-outline"></ion-icon>
+          Analytics
+        </p>
+
+        <p class="menu-item" (click)="goToStreaks()">
+          <ion-icon name="flame-outline"></ion-icon>
+          Streak History
+        </p>
+
+        <p class="menu-item" (click)="goToRewards()">
+          <ion-icon name="trophy-outline"></ion-icon>
+          Rewards
+        </p>
+
+        <p class="menu-item" (click)="goToCompletion()">
+          <ion-icon name="leaf-outline"></ion-icon>
+          Completion
+        </p>
+
+        <p class="menu-item" (click)="goToSettings()">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </p>
+
+        <p class="menu-item" (click)="logout()">
+          <ion-icon name="log-out-outline"></ion-icon>
+          Logout
+        </p>
+
+      </nav>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+      <div class="stats">
+        <div class="card">
+          <h4>Total Habits</h4>
+          <p>{{ totalHabits }}</p>
+        </div>
+
+        <div class="card">
+          <h4>Total Streak Days</h4>
+          <p>{{ totalStreakDays }}</p>
+        </div>
+
+        <div class="card">
+          <h4>Total Rewards</h4>
+          <p>{{ totalRewards }}</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+</ion-content>

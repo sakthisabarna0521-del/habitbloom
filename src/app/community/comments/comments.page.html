@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>💬 Community</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- COMMENT INPUT -->
+  <div class="comment-input">
+    <ion-input [(ngModel)]="newComment" placeholder="Share your habit progress..."></ion-input>
+    <ion-button (click)="addComment()">Post</ion-button>
+  </div>
+
+  <!-- COMMENTS FEED -->
+  <div class="feed">
+
+    <div class="comment-card" *ngFor="let c of comments">
+
+      <div class="top">
+
+        <div class="avatar">
+          {{c.user.charAt(0)}}
+        </div>
+
+        <div class="info">
+          <h4>{{c.user}}</h4>
+          <p class="time">{{c.time}}</p>
+        </div>
+
+        <div class="badge">
+          🔥 {{c.streak}}d
+        </div>
+
+      </div>
+
+      <p class="text">
+        {{c.text}}
+      </p>
+
+      <div class="actions">
+
+        <button (click)="like(c)">
+          ❤️ {{c.likes}}
+        </button>
+
+        <button>
+          💬 Reply
+        </button>
+
+        <button>
+          🔗 Share
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

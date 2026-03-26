@@ -1,0 +1,76 @@
+<!-- ===== HERO GARDEN SECTION ===== -->
+<div class="garden-hero">
+
+  <h2 class="title">🎯Achievement Garden</h2>
+
+  <!-- 🌳 Garden Level -->
+  <div class="garden-level">
+    <div class="tree-stage">
+      🌱
+    </div>
+    <div class="level-info">
+      <h4>Garden Level {{ gardenLevel }}</h4>
+      <p>{{ currentStreak }} Day Power 🔥</p>
+    </div>
+  </div>
+
+  <!-- 🎯 Circular Progress -->
+  <div class="circle-wrapper">
+    <svg width="120" height="120">
+      <circle cx="60" cy="60" r="50" class="bg-circle"/>
+      <circle
+        cx="60"
+        cy="60"
+        r="50"
+        class="progress-circle"
+        [attr.stroke-dashoffset]="progressOffset"
+      />
+    </svg>
+    <div class="circle-text">
+      {{ currentStreak }}
+    </div>
+  </div>
+
+</div>
+
+
+<!-- 🏃‍♂️‍➡️ Runner Track -->
+<div class="runner-track">
+  <div class="runner" [style.left.%]="runnerPosition">
+    🏃‍♂️‍➡️
+  </div>
+</div>
+
+
+<!-- 🏆 Milestones -->
+<div class="milestones">
+
+  <div
+    class="milestone-card"
+    *ngFor="let milestone of milestones"
+    [class.unlocked]="currentStreak >= milestone.streak"
+  >
+    <div class="milestone-icon">
+      {{ milestone.icon }}
+    </div>
+    <p>{{ milestone.streak }} Days</p>
+  </div>
+
+</div>
+
+
+<!-- 📊 Stats Section -->
+<div class="stats-row">
+
+  <div class="mini-card glass">
+    <h5>Total Growth</h5>
+    <p>{{ totalGrowth }}</p>
+  </div>
+
+  <div class="mini-card glass">
+    <h5>Rewards</h5>
+    <p>{{ rewards.length }}</p>
+  </div>
+
+</div>
+

@@ -1,0 +1,154 @@
+<ion-content>
+
+  <!-- 🔥 TOP NAVIGATION -->
+  <header class="top-nav">
+
+  <div class="logo">
+    🌱 HabitBloom
+  </div>
+
+  <!-- NAV LINKS -->
+  <nav class="nav-links">
+
+    <p (click)="goToDashboard()">
+      <ion-icon name="home-outline"></ion-icon>
+      Dashboard
+    </p>
+
+    <p (click)="goToAddHabit()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      Add Habit
+    </p>
+
+    <p (click)="goToStreaks()">
+      <ion-icon name="flame-outline"></ion-icon>
+      Streaks
+    </p>
+
+    <p (click)="goToAnalytics()">
+      <ion-icon name="bar-chart-outline"></ion-icon>
+      Analytics
+    </p>
+
+    <p (click)="goToRewards()">
+      <ion-icon name="trophy-outline"></ion-icon>
+      Rewards
+    </p>
+
+    <p (click)="goToCommunity()">
+      <ion-icon name="people-outline"></ion-icon>
+      Community
+    </p>
+  </nav>
+
+  <div class="profile-dropdown">
+
+  <button class="profile-btn" (click)="toggleProfileDropdown()">
+    <img [src]="user.profile || 'assets/profile.png'" class="profile-img">
+  </button>
+
+  <div class="dropdown-menu" [class.show]="isProfileOpen">
+
+    <div class="user-info">
+      <strong>{{ user.name }}</strong>
+      <p>{{ user.email }}</p>
+      <small>Last login: {{ lastLogin }}</small>
+    </div>
+
+    <hr>
+
+    <p (click)="goToCompletion()">
+      <ion-icon name="leaf-outline"></ion-icon>
+      Completion</p>
+    <p (click)="goToGamification()">
+      <ion-icon name="game-controller-outline"></ion-icon>
+      Gamifications</p>
+    <p (click)="goToSettings()">
+      <ion-icon name="settings-outline"></ion-icon>
+      Settings</p>
+
+    <hr>
+
+    <p class="logout-item" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      Logout</p>
+
+  </div>
+
+</div>
+
+</header>
+  <!-- 🔥 EXISTING DASHBOARD CONTENT -->
+  <div class="dashboard-container">
+
+    <main class="main">
+
+      <!-- STATS (UNCHANGED) -->
+      <div class="stats">
+        <div class="card">
+          <h4>Total Habits</h4>
+          <p>{{ habits.length }}</p>
+        </div>
+
+        <div class="card">
+          <h4>Completed Today</h4>
+          <p>{{ completedToday }}</p>
+        </div>
+
+        <div class="card">
+          <h4>Current Streak</h4>
+          <p>{{ currentStreak }}</p>
+        </div>
+
+        <div class="card">
+          <h4>Longest Streak</h4>
+          <p>{{ longestStreak }}</p>
+        </div>
+      </div>
+
+      <!-- HABIT CARDS (UNCHANGED) -->
+      <div class="habit-grid">
+
+        <div class="habit-card" *ngFor="let habit of habits; let i=index">
+
+          <div class="plant">{{ getPlantEmoji(habit.streak) }}</div>
+
+          <h3>{{ habit.name }}</h3>
+          <p class="description">{{ habit.description }}</p>
+          <small class="frequency">{{ habit.frequency }}</small>
+
+          <p class="streak">🔥 {{ habit.streak }} day streak</p>
+
+          <small *ngIf="habit.lastCompleted" class="completed">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+            Completed: {{ habit.lastCompleted }}
+          </small>
+
+          <div class="actions">
+            <button class="done-btn" (click)="completeHabit(i)">
+              <ion-icon name="checkmark-done-outline"></ion-icon>Done
+            </button>
+
+            <button class="delete-btn" (click)="deleteHabit(i)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+
+            <button (click)="shareAchievement(habit)">
+              <ion-icon name="share-social-outline"></ion-icon>
+           </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+</ion-content>
+
+<!-- UNDO BAR (UNCHANGED) -->
+<div *ngIf="showUndo" class="undo-bar">
+  Habit deleted
+  <button (click)="undoDelete()">Undo</button>
+</div>

@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { StreaksPageRoutingModule } from './streaks-routing.module';
+
+import { StreaksPage } from './streaks.page';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    StreaksPageRoutingModule
+  ],
+  declarations: [StreaksPage]
+})
+export class StreaksPageModule {}

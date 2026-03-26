@@ -1,0 +1,126 @@
+.map-content {
+  --background: linear-gradient(to top, #4facfe, #00f2fe);
+  overflow-x: auto;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 1300px;
+  height: 450px;
+}
+
+/* SVG PATH */
+.path-svg {
+  position: absolute;
+  width: 1300px;
+  height: 450px;
+}
+
+.path-svg path {
+  stroke: white;
+  stroke-width: 6;
+  fill: transparent;
+  stroke-dasharray: 15 10;
+  filter: drop-shadow(0 0 12px white);
+}
+
+/* ISLAND */
+.island {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #7bed9f 60%, #c2a15c 61%);
+  box-shadow: 0 10px 0 #9e7b4f;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.island:hover {
+  transform: scale(1.1);
+}
+
+/* PLANT */
+.plant {
+  font-size: 50px;
+  margin-top: 30px;
+  animation: grow 0.5s ease;
+}
+
+/* BADGE */
+.badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: linear-gradient(45deg, #ff512f, #dd2476);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  line-height: 35px;
+  font-weight: bold;
+}
+
+/* LABEL */
+.label {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+}
+
+/* COMPLETED */
+.completed {
+  box-shadow: 0 0 20px #00ffcc;
+}
+
+/* LOCKED */
+.locked {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+/* WILTED */
+.wilted .plant {
+  transform: rotate(180deg);
+  filter: grayscale(100%);
+}
+
+/* MOVING SPROUT */
+.moving-sprout {
+  position: absolute;
+  font-size: 45px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: drop-shadow(0 0 15px #00ffcc);
+}
+
+@keyframes grow {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.game-toolbar {
+  --background: #ffffff;   /* white background */
+  --color: #000000;        /* black text */
+  text-align: center;
+}
+
+ion-title {
+  text-align: center;
+  font-weight: 800;        /* extra bold */
+  font-size: 22px;
+  color: #000000;
+  letter-spacing: 1px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

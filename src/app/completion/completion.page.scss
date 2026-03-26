@@ -1,0 +1,149 @@
+ion-content {
+  --background: linear-gradient(to bottom, #f8fafc, #eef2f7);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Container */
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* Header */
+.header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+}
+
+.header p {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/* GROWTH RING */
+.growth-ring {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+circle {
+  fill: none;
+  stroke-width: 10;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.bg {
+  stroke: #e6e6e6;
+}
+
+.progress {
+  stroke: #00c853;
+  stroke-dasharray: 314;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.circle-text span {
+  display: block;
+  font-size: 10px;
+  color: #777;
+  font-weight: 500;
+}
+
+/* STATS */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.mini-card {
+  width: 120px;
+  padding: 18px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-5px);
+}
+
+.mini-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.mini-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mini-label {
+  font-size: 11px;
+  color: #777;
+}
+
+/* PROGRESS BAR */
+.progress-section {
+  margin-bottom: 30px;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00c853, #00e676);
+  transition: width 0.8s ease;
+}
+
+/* BUTTON */
+.complete-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #000000, #333333);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.complete-btn:hover {
+  transform: scale(1.03);
+}

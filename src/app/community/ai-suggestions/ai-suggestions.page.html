@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>🧠 AI Habit Coach</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ai-bg">
+
+  <!-- GOAL INPUT -->
+
+  <div class="goal-box">
+
+    <h2>What is your goal?</h2>
+
+    <input
+      type="text"
+      [(ngModel)]="goal"
+      placeholder="Example: Become more productive">
+
+    <button (click)="generateHabits()">
+      Generate Habits
+    </button>
+
+  </div>
+
+
+  <!-- GENERATED HABITS -->
+
+  <div class="habit-section" *ngIf="generatedHabits.length">
+
+    <h3>✨ AI Generated Habits</h3>
+
+    <div class="habit-card"
+        *ngFor="let h of generatedHabits">
+
+      <div class="habit-left">
+        {{h.icon}}
+      </div>
+
+      <div class="habit-center">
+
+        <h4>{{h.title}}</h4>
+
+        <p>{{h.reason}}</p>
+
+      </div>
+
+      <div class="habit-right">
+
+        <span class="difficulty"
+        [class.easy]="h.level=='Easy'"
+        [class.medium]="h.level=='Medium'"
+        [class.hard]="h.level=='Hard'">
+
+        {{h.level}}
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- DAILY ROUTINE -->
+
+  <div class="routine-section" *ngIf="generatedHabits.length">
+
+    <h3>📅 AI Daily Routine</h3>
+
+    <div class="routine-card"
+        *ngFor="let r of routine">
+
+      <span class="time">
+        {{r.time}}
+      </span>
+
+      <span class="task">
+        {{r.task}}
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- AI SUCCESS PROBABILITY -->
+
+  <div class="prediction-box" *ngIf="generatedHabits.length">
+
+    <h3>📊 Success Probability</h3>
+
+    <div class="meter">
+
+      <div
+        class="meter-fill"
+        [style.width.%]="successProbability">
+
+      </div>
+
+    </div>
+
+    <p class="percent">
+      {{successProbability}}% chance of success
+    </p>
+
+  </div>
+
+</ion-content>

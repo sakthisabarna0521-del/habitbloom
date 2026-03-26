@@ -1,0 +1,57 @@
+<ion-content>
+
+  <div class="settings-wrapper">
+
+    <h2>Settings</h2>
+
+    <!-- ACCOUNT -->
+    <div class="card">
+      <h3>Account</h3>
+
+      <label>Name</label>
+      <input type="text" [(ngModel)]="user.name">
+
+      <label>Email</label>
+      <input type="email" [(ngModel)]="user.email">
+
+      <div class="profile-section">
+        <img [src]="user.profile" class="profile-img">
+
+        <div class="profile-actions">
+          <input type="file" accept="image/*" (change)="onImageSelect($event)">
+          <button class="outline" (click)="removeProfileImage()">Remove</button>
+        </div>
+      </div>
+
+      <button class="primary" (click)="saveProfile()">Save Changes</button>
+    </div>
+
+    <!-- PREFERENCES -->
+    <div class="card">
+      <h3>Preferences</h3>
+
+      <div class="row">
+        <span>Dark Mode</span>
+        <ion-toggle [(ngModel)]="darkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+      </div>
+
+      <div class="row">
+        <span>Enable Reminders</span>
+        <ion-toggle [(ngModel)]="reminders" (ionChange)="saveReminders()"></ion-toggle>
+      </div>
+
+      <label>Reminder Time</label>
+      <input type="time" [(ngModel)]="reminderTime" (change)="saveReminders()">
+    </div>
+
+    <!-- SECURITY -->
+    <div class="card">
+      <h3>Security</h3>
+
+      <button class="outline" (click)="changePassword()">Change Password</button>
+      <button class="danger-outline" (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+
+</ion-content>

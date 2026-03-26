@@ -1,0 +1,62 @@
+<ion-content class="login-wrapper" fullscreen>
+
+  <div class="split-container">
+
+    <!-- LEFT SIDE: Interactive Welcome Panel -->
+    <div class="left-panel">
+
+      <div class="welcome-box">
+
+        <h1 class="dynamic-text">
+          {{ username ? ('Hello ' + username) : 'Welcome back' }}
+        </h1>
+
+        <p class="subtitle">
+          {{ username ? 'Ready to continue your growth journey?' : 'Login to continue building better habits.' }}
+        </p>
+
+        <!-- Video always plays -->
+        <div class="plant-wrapper active">
+          <video autoplay muted loop playsinline class="plant-video" preload="auto">
+            <source src="assets/plant-growth.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: Login Card -->
+    <div class="right-panel">
+
+      <div class="login-card">
+
+        <h2>Login</h2>
+
+        <ion-item lines="none">
+          <ion-label position="floating">UserName</ion-label>
+          <ion-input [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" class="login-btn" (click)="loginUser()">
+          Enter Garden →
+        </ion-button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  

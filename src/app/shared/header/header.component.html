@@ -1,0 +1,36 @@
+<ion-header class="premium-header">
+  <ion-toolbar>
+
+    <div class="header-left" (click)="navigate('/home')">
+      <div class="logo-circle">🌱</div>
+      <span class="app-name">Habit Bloom</span>
+    </div>
+
+    <div slot="end" class="header-right">
+
+      <button class="nav-link" (click)="navigate('/home')">Home</button>
+      <button class="nav-link" (click)="navigate('/about')">About</button>
+      <button class="nav-link" (click)="navigate('/contact')">Contact</button>
+
+      <button class="login-btn" (click)="navigate('/login')">
+        Login
+      </button>
+
+      <button class="signup-btn" (click)="navigate('/signup')">
+        Create Account
+      </button>
+
+      <div class="menu-icon" (click)="toggleMenu()">☰</div>
+
+    </div>
+
+  </ion-toolbar>
+
+  <div class="dropdown-menu" *ngIf="menuOpen">
+    <a (click)="navigate('/home')">Home</a>
+    <a (click)="navigate('/about')">About</a>
+    <a (click)="navigate('/contact')">Contact</a>
+    <a (click)="navigate('/login')">Login</a>
+  </div>
+
+</ion-header>

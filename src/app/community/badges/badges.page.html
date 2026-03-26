@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>🏆 Achievement Timeline</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="badges-bg">
+
+  <!-- USER HEADER -->
+  <div class="user-header">
+    <div class="avatar">👤</div>
+    <div>
+      <h2>{{user}}</h2>
+      <p>{{badgesUnlocked}} / {{badges.length}} badges unlocked</p>
+    </div>
+  </div>
+
+
+  <!-- STORY TIMELINE -->
+  <div class="story-container">
+
+    <div *ngFor="let badge of badges"
+         class="story-card"
+         [class.locked]="!badge.unlocked"
+         (click)="openBadge(badge)">
+
+        <div class="story-ring"
+             [class.unlocked]="badge.unlocked">
+
+            <div class="badge-icon">
+              {{badge.icon}}
+            </div>
+
+        </div>
+
+        <p class="badge-name">
+          {{badge.name}}
+        </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- BADGE DETAILS -->
+  <div class="timeline">
+
+    <div *ngFor="let badge of badges"
+         class="timeline-card"
+         [class.locked]="!badge.unlocked">
+
+        <div class="timeline-icon">
+          {{badge.icon}}
+        </div>
+
+        <div class="timeline-info">
+
+          <h3>{{badge.name}}</h3>
+
+          <p *ngIf="badge.unlocked">
+            🎉 Unlocked on {{badge.date}}
+          </p>
+
+          <p *ngIf="!badge.unlocked">
+            🔒 Locked — Complete {{badge.goal}}
+          </p>
+
+        </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,148 @@
+.signup-container {
+  --background: #f5f7fa;
+}
+
+/* Layout */
+.signup-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT PANEL */
+.brand-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+}
+
+.brand-content {
+  max-width: 450px;
+}
+
+.brand-content h1 {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.brand-content p {
+  margin-top: 20px;
+  opacity: 0.8;
+  font-size: 15px;
+}
+
+.feature-points {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* RIGHT PANEL */
+.form-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Card */
+.signup-card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.signup-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 25px;
+  opacity: 0.6;
+}
+
+/* Inputs */
+.input-item {
+  --background: #f3f4f6;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+/* Button */
+.signup-btn {
+  --background: #111827;
+  --border-radius: 10px;
+  height: 48px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.signup-btn:hover {
+  opacity: 0.9;
+}
+
+/* Login link */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.login-link span {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+/* ===== GROWTH MAP ===== */
+
+.growth-map {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+}
+
+.growth-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.3;
+  transition: 0.4s ease;
+  transform: scale(0.8);
+}
+
+.growth-stage span {
+  font-size: 12px;
+  margin-top: 6px;
+  color: white;
+}
+
+.growth-stage.active {
+  opacity: 1;
+  transform: scale(1.2);
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); }
+  100% { transform: scale(1.2); }
+}
+
+.swal-popup-front {
+  z-index: 99999 !important;
+}

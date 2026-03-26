@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>👯 Friends</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="friends-bg">
+
+  <!-- SEARCH -->
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search users..."
+      [(ngModel)]="searchText">
+  </div>
+
+
+  <!-- SUGGESTED USERS -->
+
+  <div class="section-title">
+    Suggested for you
+  </div>
+
+  <div class="suggested-list">
+
+    <div class="user-card"
+         *ngFor="let user of suggestedUsers">
+
+      <div class="avatar">
+        👤
+      </div>
+
+      <div class="user-info">
+        <h4>{{user.name}}</h4>
+        <p>{{user.bio}}</p>
+      </div>
+
+      <button
+        class="follow-btn"
+        [class.following]="user.following"
+        (click)="toggleFollow(user)">
+
+        {{user.following ? 'Following' : 'Follow'}}
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- FRIEND LIST -->
+
+  <div class="section-title">
+    Your Friends
+  </div>
+
+  <div class="friends-list">
+
+    <div class="friend-card"
+        *ngFor="let friend of friends">
+
+      <div class="avatar">
+        👤
+      </div>
+
+      <div class="friend-info">
+        <h4>{{friend.name}}</h4>
+        <p>🔥 {{friend.streak}} day streak</p>
+      </div>
+
+      <button
+        class="follow-btn following"
+        (click)="toggleFollow(friend)">
+        Following
+      </button>
+
+    </div>
+
+  </div>
+
+</ion-content>

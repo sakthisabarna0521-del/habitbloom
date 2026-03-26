@@ -1,0 +1,140 @@
+.leaderboard-bg {
+  --background: #fff;
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* PODIUM */
+.podium-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.podium-card {
+  width: 100px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f7f7f7;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.podium-card.first {
+  background: #000;
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.podium-card.second { height: 95px; }
+.podium-card.third { height: 90px; }
+
+.avatar {
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+.name { font-weight: 600; font-size: 13px; }
+.streak { font-size: 12px; color: #555; }
+.medal { position: absolute; bottom: -12px; font-size: 18px; }
+
+/* HORIZONTAL SCROLL TOP USERS */
+.top-users-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.top-user-card {
+  width: 120px;
+  background: #000;
+  color: white;
+  border-radius: 20px;
+  flex-shrink: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.top-user-card.me {
+  border: 2px solid #4caf50;
+}
+
+.top-user-card:hover {
+  transform: scale(1.08);
+}
+
+.avatar-circle {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.streak-bar {
+  width: 80%;
+  height: 6px;
+  background: #ddd;
+  border-radius: 6px;
+  margin: 6px 0;
+  overflow: hidden;
+}
+
+.streak-fill {
+  height: 6px;
+  background: linear-gradient(to right, #ff9800, #ff5722);
+  transition: 0.5s ease;
+}
+
+.streak-count { font-size: 12px; }
+
+/* FULL LIST */
+.full-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  transition: 0.25s;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  background: #eee;
+}
+
+.user-card.me {
+  border: 2px solid #4caf50;
+}
+
+.rank { width: 30px; font-weight: 600; }
+.avatar-small { font-size: 20px; }
+.user-info { flex: 1; }
+.user-info .name { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.progress { height: 6px; background: #ddd; border-radius: 6px; overflow: hidden; }
+.progress-fill { height: 6px; background: linear-gradient(to right,#ff9800,#ff5722); }
+.streak { font-size: 12px; font-weight: 500; }

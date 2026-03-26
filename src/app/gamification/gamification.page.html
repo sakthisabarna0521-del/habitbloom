@@ -1,0 +1,49 @@
+<app-header></app-header>
+<ion-content class="map-content">
+
+  <div class="page-title">
+    🏆Gamification
+  </div>
+
+  <div class="map-wrapper">
+
+    <!-- SVG CURVED PATH -->
+    <svg class="path-svg" viewBox="0 0 1300 450">
+      <path #motionPath [attr.d]="pathD" />
+    </svg>
+
+    <!-- 🌱 MOVING SPROUT -->
+    <div
+      *ngIf="moving"
+      class="moving-sprout"
+      [style.left.px]="sproutX"
+      [style.top.px]="sproutY"
+    >
+      🌱
+    </div>
+
+    <!-- ISLANDS -->
+    <div
+      *ngFor="let stage of stages; let i = index"
+      class="island"
+      [ngStyle]="{ left: stage.x + 'px', top: stage.y + 'px' }"
+      [ngClass]="stage.state"
+      (click)="completeHabit(stage)"
+    >
+
+      <div class="plant">{{ stage.icon }}</div>
+      <div class="badge">{{ i + 1 }}</div>
+      <div class="label">{{ stage.name }}</div>
+
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title size="small">HabitBloom 🌱</ion-title>
+  </ion-toolbar>
+</ion-footer>
+<app-footer></app-footer>

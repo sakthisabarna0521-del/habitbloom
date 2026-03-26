@@ -1,0 +1,27 @@
+<app-header></app-header>
+<ion-content class="analytics-page">
+
+  <div class="header">
+    <h2>📊 Analytics & Progress</h2>
+    <p>Track your growth journey</p>
+  </div>
+
+  <div class="progress-card">
+    <h3>Today's Completion</h3>
+    <div class="percentage">{{ completionPercentage }}%</div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-card">
+      <h3>Habit Streaks</h3>
+      <canvas id="streakChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Daily Progress</h3>
+      <canvas id="progressChart"></canvas>
+    </div>
+  </div>
+
+</ion-content>
+<app-footer></app-footer>

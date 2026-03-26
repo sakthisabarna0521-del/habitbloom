@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<ion-content class="contact-page" fullscreen>
+
+  <!-- HERO / INTRO -->
+  <section class="contact-hero">
+    <h1>Get in Touch with Habit Bloom 🌱</h1>
+    <p>
+      We love hearing from our gardeners! Share your thoughts, feedback, or ideas
+      and help us grow better together.
+    </p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+
+    <!-- FORM CARD -->
+    <div class="contact-card form-card animate-card" id="formCard">
+      <h3>Send Us a Message</h3>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input type="text" class="input-field"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" class="input-field"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Subject</ion-label>
+        <ion-input type="text" class="input-field"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Message</ion-label>
+        <ion-textarea rows="3" class="input-field"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" class="submit-btn" (click)="submitForm()">
+        Send Message
+      </ion-button>
+    </div>
+
+    <!-- INFO CARD -->
+    <div class="contact-card info-card animate-card" id="infoCard">
+      <h3>Contact Info</h3>
+
+      <p><strong>Email:</strong> support@habitbloom.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Address:</strong> Chennai, India</p>
+
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="#" title="Twitter">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" title="LinkedIn">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="#" title="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SUCCESS POPUP -->
+  <div class="success-popup" [class.show]="showSuccess">
+    <span>✔️ Message Sent!</span>
+  </div>
+
+</ion-content>
+
+<app-footer></app-footer>

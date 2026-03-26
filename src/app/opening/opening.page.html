@@ -1,0 +1,222 @@
+<app-header></app-header>
+
+<ion-content class="landing-wrapper" fullscreen>
+
+  <!-- HERO SECTION  -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        Build Discipline.
+        <br />
+        Grow Your Digital Garden.
+      </h1>
+
+      <p>
+        HabitBloom helps you build powerful daily habits with visual growth,
+        streak intelligence, and a clean performance dashboard.
+      </p>
+
+      <div class="hero-actions">
+        <ion-button routerLink="/signup" class="primary-btn">
+          Start Growing
+        </ion-button>
+<!--
+        <ion-button routerLink="/login" fill="clear" class="secondary-btn">
+          Login
+        </ion-button> -->
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <h3>10K+</h3>
+          <span>Habits Built</span>
+        </div>
+        <div>
+          <h3>98%</h3>
+          <span>Consistency Rate</span>
+        </div>
+        <div>
+          <h3>4.9★</h3>
+          <span>User Rating</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="assets/sprout.png" class="hero-img" />
+    </div>
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>Why HabitBloom?</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="icon">🌱</div>
+        <h3>Stage Based Growth</h3>
+        <p>
+          Your plant evolves from seed to tree based on your real streak progress.
+          Every day matters.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🔥</div>
+        <h3>Smart Streak Engine</h3>
+        <p>
+          Automatic streak tracking with intelligent reset logic and
+          animated milestone rewards.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">📊</div>
+        <h3>Performance Dashboard</h3>
+        <p>
+          Visual analytics, habit frequency insights, and growth reports
+          in one clean interface.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>Micro Interactions</h3>
+        <p>
+          Smooth button bounce, ripple effects, and fire animation when
+          your streak increases.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--  GROWTH PREVIEW  -->
+  <section class="growth-preview">
+    <h2>Watch Your Progress Come Alive</h2>
+
+    <div class="growth-stages">
+      <div class="stage">
+        <div class="emoji">🌰</div>
+        <span>Seed</span>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="stage">
+        <div class="emoji">🌱</div>
+        <span>Sprout</span>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="stage">
+        <div class="emoji">🌿</div>
+        <span>Growing Plant</span>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="stage">
+        <div class="emoji">🌳</div>
+        <span>Strong Tree</span>
+      </div>
+    </div>
+
+    <p class="growth-desc">
+      Each completed habit strengthens your plant. Miss days, and growth slows.
+      Stay consistent to unlock the full tree.
+    </p>
+  </section>
+
+
+  <!-- HOW IT WORKS  -->
+ <section class="how-evolution">
+
+  <h2>Your Growth Journey</h2>
+  <p class="how-sub">Not just steps. A transformation.</p>
+
+  <div class="evolution-path">
+
+    <div class="evo-stage">
+      <div class="plant-icon">🌰</div>
+      <h4>Plant the Seed</h4>
+      <p>Create your habit and commit to it.</p>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="evo-stage">
+      <div class="plant-icon">🌱</div>
+      <h4>Build the Streak</h4>
+      <p>Track daily progress and stay consistent.</p>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="evo-stage">
+      <div class="plant-icon">🌳</div>
+      <h4>Bloom & Master</h4>
+      <p>Watch your growth and unlock insights.</p>
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- TESTIMONIAL  -->
+  <section class="testimonial">
+    <div class="testimonial-card">
+      <p>
+        “HabitBloom completely changed how I stay consistent.
+        Watching my plant grow makes daily tracking addictive.”
+      </p>
+      <h4>— Early User</h4>
+    </div>
+  </section>
+
+
+  <!--  FINAL CTA -->
+  <section class="cta-section">
+    <h2>Start Building Consistency Today</h2>
+    <p>
+      Join thousands building better habits with intelligent tracking.
+    </p>
+
+    <ion-button routerLink="/signup" class="primary-btn large">
+      Create Your Account
+    </ion-button>
+  </section>
+
+</ion-content>
+
+<!-- 🌟 Floating AI Button -->
+<div class="ai-float-btn" (click)="toggleAssistant()">
+  🤖
+</div>
+
+<!-- 💬 AI Assistant Card -->
+<div class="ai-floating-card" *ngIf="isOpen">
+
+  <h3>AI Assistant</h3>
+
+  <p class="quote">{{ quote }}</p>
+
+  <div class="suggestion-box">
+    <strong>Suggested Habit:</strong>
+    <p>{{ suggestion }}</p>
+  </div>
+
+  <div class="mood-section">
+    <p>How’s your mood today?</p>
+    <button (click)="checkMood('Happy')">😊</button>
+    <button (click)="checkMood('Neutral')">😐</button>
+    <button (click)="checkMood('Low')">😔</button>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

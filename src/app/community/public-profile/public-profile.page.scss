@@ -1,0 +1,137 @@
+.profile-bg{
+  --background:#ffffff;
+}
+
+/* HEADER */
+
+.profile-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px;
+}
+
+/* AVATAR */
+
+.avatar{
+  width:80px;
+  height:80px;
+  background:black;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+}
+
+/* STATS */
+
+.stats{
+  display:flex;
+  gap:25px;
+  text-align:center;
+}
+
+.stats h3{
+  margin:0;
+  font-size:18px;
+}
+
+.stats p{
+  font-size:12px;
+  color:#666;
+}
+
+/* BIO */
+
+.bio{
+  padding:0 20px;
+}
+
+.bio h2{
+  margin:0;
+  font-size:18px;
+}
+
+.bio p{
+  font-size:13px;
+  color:#555;
+}
+
+/* FOLLOW BUTTON */
+
+.follow-btn{
+  margin-top:10px;
+  padding:8px 20px;
+  border-radius:20px;
+  border:none;
+  background:black;
+  color:white;
+  cursor:pointer;
+}
+
+/* HIGHLIGHTS */
+
+.highlights{
+  display:flex;
+  gap:20px;
+  padding:20px;
+  overflow-x:auto;
+}
+
+.highlight{
+  text-align:center;
+  font-size:12px;
+}
+
+.circle{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:2px solid black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:5px;
+}
+
+/* POSTS GRID */
+
+.posts-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  padding:10px;
+}
+
+/* POST */
+
+.post-card{
+  background:#f6f6f6;
+  border-radius:12px;
+  padding:12px;
+  text-align:center;
+  transition:0.2s;
+}
+
+.post-card:hover{
+  transform:scale(1.05);
+}
+
+/* HABIT ICON */
+
+.habit-icon{
+  font-size:28px;
+}
+
+.post-card h3{
+  font-size:14px;
+  margin:5px 0;
+}
+
+.post-card p{
+  font-size:11px;
+  color:#777;
+}

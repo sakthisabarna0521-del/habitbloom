@@ -1,0 +1,248 @@
+.login-wrapper {
+  --background: #f4f6f9;
+}
+
+/* Split Layout */
+.split-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT PANEL BACKGROUND */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+/* CONTENT BOX */
+.welcome-box {
+  max-width: 420px;
+}
+
+/* MAIN TEXT */
+.dynamic-text {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+}
+
+/* SUBTITLE */
+.subtitle {
+  margin-top: 16px;
+  font-size: 15px;
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+/* Video Wrapper */
+.plant-wrapper {
+  margin-top: 40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease;
+}
+
+/* When name is typed */
+.plant-wrapper.active {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Video styling */
+.plant-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* RIGHT SIDE */
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+/* Card */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Inputs */
+ion-item {
+  --background: #f1f5f9;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.login-btn {
+  --background: #111827;
+  --border-radius: 12px;
+  height: 50px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    height: 40%;
+  }
+
+  .right-panel {
+    height: 60%;
+  }
+}
+
+
+/* =======================
+   Custom Sweet Popup
+======================= */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.popup-box {
+  background: #1a1a1a; /* dark card for black/white theme */
+  color: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  max-width: 380px;
+  position: relative;
+  overflow: hidden;
+}
+
+.popup-box.success h2,
+.popup-box.error h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box.success h2::before {
+  content: '✔️';
+  margin-right: 8px;
+}
+
+.popup-box.error h2::before {
+  content: '❌';
+  margin-right: 8px;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+/* Button */
+.popup-box ion-button {
+  --background: #fff;
+  --color: #111;
+  --border-radius: 12px;
+  font-weight: 600;
+  padding: 0 25px;
+  transition: all 0.2s;
+}
+
+.popup-box ion-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Countdown ring */
+.countdown-ring {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+  position: relative;
+}
+
+.countdown-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.countdown-ring .circle-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.1);
+  stroke-width: 4;
+}
+
+.countdown-ring .circle {
+  fill: none;
+  stroke-width: 4;
+  stroke: url(#gradient); /* gradient stroke */
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.1s linear;
+}
+
+/* Gradient for countdown ring */
+.countdown-ring svg defs linearGradient {
+  stop:first-child {
+    stop-color: #00ffe0;
+  }
+  stop:last-child {
+    stop-color: #00aaff;
+  }
+}
+
+/* Animation for ring (optional pulse) */
+@keyframes ringPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.swal-popup-front {
+  z-index: 99999 !important;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "habitbloom",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

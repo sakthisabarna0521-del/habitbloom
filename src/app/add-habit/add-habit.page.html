@@ -1,0 +1,35 @@
+<ion-content class="center-page" fullscreen>
+  <div class="center-wrapper">
+    <ion-card class="habit-card">
+      <ion-card-header>
+        <ion-card-title>Add New Habit 🎯</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-item class="custom-item">
+          <ion-input placeholder="Habit Name" [(ngModel)]="habitName"></ion-input>
+        </ion-item>
+
+        <ion-item class="custom-item">
+          <ion-textarea placeholder="Description" [(ngModel)]="habitDescription"></ion-textarea>
+        </ion-item>
+
+        <div class="section-label">Frequency</div>
+        <div class="chip-group">
+          <button class="chip" [class.active]="habitFrequency==='daily'" (click)="habitFrequency='daily'">Daily</button>
+          <button class="chip" [class.active]="habitFrequency==='weekly'" (click)="habitFrequency='weekly'">Weekly</button>
+          <button class="chip" [class.active]="habitFrequency==='custom'" (click)="habitFrequency='custom'">Custom</button>
+        </div>
+
+        <div class="section-label">Choose Plant</div>
+        <div class="plant-group">
+          <div class="plant-card" [class.selected]="plantType==='sunflower'" (click)="plantType='sunflower'">🌻 <span>Sunflower</span></div>
+          <div class="plant-card" [class.selected]="plantType==='rose'" (click)="plantType='rose'">🌹 <span>Rose</span></div>
+          <div class="plant-card" [class.selected]="plantType==='cactus'" (click)="plantType='cactus'">🌵 <span>Cactus</span></div>
+        </div>
+
+        <ion-button expand="block" class="save-btn" (click)="saveHabit()">Save Habit</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

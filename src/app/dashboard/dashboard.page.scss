@@ -1,0 +1,492 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: #f0f0f0;
+}
+
+/*  SIDEBAR  */
+.sidebar {
+  width: 280px;
+  background: #1c1c1c;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+
+  .profile {
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-bottom: 12px;
+      transition: transform 0.3s;
+    }
+    .profile-img:hover {
+      transform: scale(1.1);
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    p {
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+    small {
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+  }
+
+  .menu {
+    position: relative;
+
+    .menu-item {
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      font-weight: 500;
+      transition: all 0.3s;
+      color: #fff;
+
+      &.active::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 0;
+        height: 100%;
+        width: 5px;
+        background: #ff4d6d;
+        border-radius: 3px;
+      }
+
+      &:hover {
+        background: rgba(255,255,255,0.1);
+        transform: translateX(5px);
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      left: 0;
+      width: 5px;
+      height: 40px;
+      background: #ff4d6d;
+      border-radius: 3px;
+      transition: top 0.3s ease;
+    }
+  }
+
+  .logout-btn {
+    margin-top: auto;
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    background: #ff4d6d;
+    color: #fff;
+
+    &:hover {
+      background: #ff2a4a;
+      transform: scale(1.05);
+    }
+  }
+}
+
+/*  MAIN */
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  color: #222;
+}
+
+/*  STATS  */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+
+  .card {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    h4 {
+      margin-bottom: 10px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    p {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #111;
+    }
+  }
+}
+
+/*  HABIT GRID  */
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
+
+  .habit-card {
+    background: #fff;
+    border-radius: 25px;
+    padding: 25px 20px 20px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-7px);
+    }
+
+    .plant {
+      font-size: 50px;
+      margin-bottom: 15px;
+      background: #eee;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    h3 {
+      margin: 0 0 5px 0;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.3px;
+    }
+
+    .description {
+      background: #f0f0f0;
+      padding: 5px 10px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 5px 0;
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .frequency {
+      display: inline-block;
+      background: #ddd;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      margin-bottom: 5px;
+      color: #111;
+    }
+
+    .streak {
+      font-weight: 600;
+      margin-top: 5px;
+      color: #333;
+    }
+
+    .completed {
+      display: block;
+      color: green;
+      font-size: 0.8rem;
+      margin-top: 3px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      button {
+        padding: 8px 12px;
+        border-radius: 12px;
+        font-weight: 500;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+
+      .done-btn {
+        background: #4caf50;
+        color: #fff;
+      }
+
+      .delete-btn {
+        color: #fff;
+      }
+    }
+  }
+}
+
+/*  ADD HABIT BOX */
+.add-box {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+
+  input, select {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    transition: 0.2s;
+
+    &:focus {
+      border-color: #4caf50;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+      outline: none;
+    }
+  }
+
+  .add-btn {
+    padding: 12px 20px;
+    border-radius: 15px;
+    background: #2196f3;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+}
+
+.menu-item ion-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  color: #fff;
+}
+
+.done-btn ion-icon,
+.logout-btn ion-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.completed ion-icon {
+  margin-right: 5px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+  color: green;
+}
+
+.delete-btn ion-icon {
+  color: black;
+}
+
+.plant-container {
+  height: 80px;
+  width: 40px;
+  border-bottom: 2px solid #4caf50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.plant {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: height 0.5s ease, font-size 0.5s ease;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: #ffffff;
+  border-top: 1px solid #ddd;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.bottom-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #333;
+  background: none;
+  border: none;
+}
+
+.bottom-btn ion-icon {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.bottom-btn.logout-btn {
+  color: #010101;
+}
+
+.edit-btn {
+  background: #000000;
+  color: #fff;
+}
+
+.undo-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000000;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.undo-bar button {
+  background: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #000000;
+  cursor: pointer;
+}
+
+
+/* NAV ALIGNMENT FIX */
+.top-nav {
+  height: 70px;
+  background: #1c1c1c;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  color: #fff;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: auto;   /* 🔥 moves links near profile */
+  margin-right: 30px;
+}
+
+.nav-links p {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.nav-links p:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* PROFILE */
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  background: #fff;
+  color: #000;
+  width: 230px;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+/* USER INFO STYLE */
+.user-info {
+  text-align: left;
+}
+
+.user-info strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.user-info p {
+  font-size: 0.85rem;
+  margin: 3px 0;
+}
+
+.user-info small {
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.dropdown-menu p {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.dropdown-menu p:hover {
+  background: #f0f0f0;
+}
+
+.logout-item {
+  color: red;
+  font-weight: 600;
+}

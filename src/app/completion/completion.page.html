@@ -1,0 +1,70 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h2>Your Progress 📈</h2>
+      <p>Small habits create big results.</p>
+    </div>
+
+    <!-- GROWTH RING -->
+    <div class="growth-ring">
+      <div class="circle">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" class="bg"/>
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            class="progress"
+            [style.strokeDashoffset]="314 - (314 * habit.growth) / 100"
+          />
+        </svg>
+        <div class="circle-text">
+          {{ habit.growth }}%
+          <span>Growth</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+
+      <div class="mini-card">
+        <div class="mini-icon">🔥</div>
+        <div class="mini-value">{{ habit.streak }}</div>
+        <div class="mini-label">Day Streak</div>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-icon">✅</div>
+        <div class="mini-value">{{ habit.total_completions }}</div>
+        <div class="mini-label">Total Done</div>
+      </div>
+
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-section">
+      <div class="progress-label">Monthly Target</div>
+      <div class="progress-bar">
+        <div
+          class="progress-fill"
+          [style.width.%]="habit.growth"
+        ></div>
+      </div>
+    </div>
+
+    <!-- COMPLETE BUTTON -->
+    <button class="complete-btn" (click)="completeToday()">
+      🚀 Complete Today
+    </button>
+
+  </div>
+
+</ion-content>
+
+<app-footer></app-footer>

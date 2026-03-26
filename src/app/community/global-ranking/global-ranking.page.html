@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>🌍 Global Habit Ranking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="global-bg">
+
+  <div class="country-card" *ngFor="let country of countries">
+
+    <!-- COUNTRY HEADER -->
+
+    <div class="country-header">
+      <div class="flag">{{country.flag}}</div>
+
+      <div class="country-info">
+        <h2>{{country.name}}</h2>
+        <p>{{country.users.length}} Top Habit Users</p>
+      </div>
+
+      <div class="score">
+        {{country.score}}
+      </div>
+    </div>
+
+
+    <!-- USERS LIST -->
+
+    <div class="user-list">
+
+      <div class="user"
+           *ngFor="let user of country.users; let i = index">
+
+        <div class="rank">
+          #{{i+1}}
+        </div>
+
+        <div class="avatar">
+          👤
+        </div>
+
+        <div class="name">
+          {{user.name}}
+        </div>
+
+        <div class="streak">
+          🔥 {{user.streak}}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

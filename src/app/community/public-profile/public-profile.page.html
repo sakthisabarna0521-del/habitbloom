@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{user.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile-bg">
+
+  <!-- PROFILE HEADER -->
+
+  <div class="profile-header">
+
+    <div class="avatar">
+      👤
+    </div>
+
+    <div class="stats">
+
+      <div>
+        <h3>{{posts.length}}</h3>
+        <p>Habits</p>
+      </div>
+
+      <div>
+        <h3>{{user.followers}}</h3>
+        <p>Followers</p>
+      </div>
+
+      <div>
+        <h3>{{user.following}}</h3>
+        <p>Following</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BIO -->
+
+  <div class="bio">
+
+    <h2>{{user.name}}</h2>
+    <p>{{user.bio}}</p>
+
+    <button class="follow-btn">Follow</button>
+
+  </div>
+
+
+  <!-- HIGHLIGHT STREAKS -->
+
+  <div class="highlights">
+
+    <div class="highlight" *ngFor="let h of highlights">
+      <div class="circle">
+        {{h.icon}}
+      </div>
+      <p>{{h.name}}</p>
+    </div>
+
+  </div>
+
+
+  <!-- HABIT POSTS GRID -->
+
+  <div class="posts-grid">
+
+    <div class="post" *ngFor="let p of posts">
+
+      <div class="post-card">
+
+        <div class="habit-icon">
+          {{p.icon}}
+        </div>
+
+        <h3>{{p.name}}</h3>
+
+        <p>{{p.streak}} day streak</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

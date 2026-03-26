@@ -1,0 +1,68 @@
+<ion-content class="streak-content">
+
+  <div class="page">
+
+    <h2>🔥 Streak Analytics</h2>
+
+    <!-- Overall Stats -->
+    <div class="overall-stats" *ngIf="habits.length > 0">
+
+      <div class="stat-box">
+        <h4>Total Habits</h4>
+        <p>{{ totalHabits }}</p>
+      </div>
+
+      <div class="stat-box">
+        <h4>Top Habit</h4>
+        <p>{{ bestHabit }}</p>
+      </div>
+
+      <div class="stat-box">
+        <h4>Longest Streak</h4>
+        <p>{{ longestStreak }} days</p>
+      </div>
+
+    </div>
+
+    <div *ngIf="habits.length === 0" class="empty">
+      No habits found 🌱
+    </div>
+
+    <!-- Habit Cards -->
+    <div class="streak-grid">
+
+      <div class="streak-card"
+           *ngFor="let habit of habits">
+
+        <div class="card-header">
+          <h3>{{ habit.name }}</h3>
+          <span class="badge">{{ habit.streak }} 🔥</span>
+        </div>
+
+        <div class="mini-stats">
+          <div>
+            <small>Total Completed</small>
+            <p>{{ habit.history?.length || 0 }}</p>
+          </div>
+
+          <div>
+            <small>Current Streak</small>
+            <p>{{ habit.streak }}</p>
+          </div>
+        </div>
+
+        <div class="history">
+          <span
+            *ngFor="let date of getRecentDays(habit.history)"
+            class="date-box">
+            {{ date }}
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

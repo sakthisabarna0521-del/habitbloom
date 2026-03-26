@@ -1,0 +1,86 @@
+.global-bg{
+  --background:#ffffff;
+  padding:20px;
+}
+
+
+/* COUNTRY CARD */
+
+.country-card{
+  background:#f7f7f7;
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:18px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+/* HEADER */
+
+.country-header{
+  display:flex;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.flag{
+  font-size:28px;
+  margin-right:10px;
+}
+
+.country-info h2{
+  font-size:18px;
+  margin:0;
+}
+
+.country-info p{
+  font-size:12px;
+  color:#777;
+  margin:0;
+}
+
+.score{
+  margin-left:auto;
+  font-weight:bold;
+  font-size:16px;
+}
+
+
+/* USER LIST */
+
+.user-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+
+/* USER CARD */
+
+.user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.rank{
+  width:25px;
+  font-weight:600;
+}
+
+.avatar{
+  font-size:18px;
+}
+
+.name{
+  flex:1;
+}
+
+.streak{
+  font-size:13px;
+  color:#ff5722;
+}

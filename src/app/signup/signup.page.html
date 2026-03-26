@@ -1,0 +1,89 @@
+<ion-content fullscreen class="signup-container">
+
+  <div class="signup-layout">
+
+    <!-- ================= LEFT PANEL ================= -->
+    <div class="brand-panel">
+  <div class="brand-content">
+
+    <h1>Watch Yourself Grow</h1>
+    <p>
+      Your habits start as a seed.
+      Complete your profile and watch your growth come alive.
+    </p>
+
+    <!-- Growth Map -->
+    <div class="growth-map">
+
+      <div class="growth-stage" [class.active]="name">
+        🌱
+        <span>Seed</span>
+      </div>
+
+      <div class="growth-stage" [class.active]="email">
+        🌿
+        <span>Sprout</span>
+      </div>
+
+      <div class="growth-stage" [class.active]="password">
+        🌳
+        <span>Tree</span>
+      </div>
+
+      <div class="growth-stage"
+           [class.active]="name && email && password && confirmPassword">
+        🌸
+        <span>Bloom</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+    <!-- ================= RIGHT PANEL ================= -->
+    <div class="form-panel">
+
+      <div class="signup-card">
+
+        <h2>Create Account</h2>
+        <p class="subtitle">Start your growth journey today.</p>
+
+        <ion-item lines="none" class="input-item">
+          <ion-label position="floating">Full Name</ion-label>
+          <ion-input type="text" [(ngModel)]="name"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="input-item">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="input-item">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="input-item">
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block"
+                    class="signup-btn"
+                    [disabled]="!name || !email || !password || !confirmPassword"
+                    (click)="registerUser()">
+          🚀 Launch My Journey
+        </ion-button>
+
+        <p class="login-link">
+          Already have an account?
+          <span routerLink="/login">Login</span>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

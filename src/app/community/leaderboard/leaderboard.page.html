@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>🏆 Leaderboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="leaderboard-bg">
+
+  <!-- TOP USERS PODIUM -->
+  <div class="podium-container">
+
+    <div class="podium-card second">
+      <div class="avatar">👤</div>
+      <div class="name">{{users[1].name}}</div>
+      <div class="streak">🔥 {{users[1].streak}}</div>
+      <div class="medal">🥈</div>
+    </div>
+
+    <div class="podium-card first">
+      <div class="avatar crown">👑</div>
+      <div class="name">{{users[0].name}}</div>
+      <div class="streak">🔥 {{users[0].streak}}</div>
+      <div class="medal">🥇</div>
+    </div>
+
+    <div class="podium-card third">
+      <div class="avatar">👤</div>
+      <div class="name">{{users[2].name}}</div>
+      <div class="streak">🔥 {{users[2].streak}}</div>
+      <div class="medal">🥉</div>
+    </div>
+
+  </div>
+
+  <!-- HORIZONTAL SCROLL TOP USERS -->
+  <div class="top-users-scroll">
+    <div *ngFor="let user of users" class="top-user-card" [class.me]="user.name === currentUser">
+      <div class="avatar-circle">👤</div>
+      <div class="name">{{user.name}}</div>
+      <div class="streak-bar">
+        <div class="streak-fill" [style.width.%]="user.streak"></div>
+      </div>
+      <div class="streak-count">🔥 {{user.streak}}</div>
+    </div>
+  </div>
+
+  <!-- FULL LIST -->
+  <div class="full-list">
+    <div class="user-card" *ngFor="let user of users; let i = index" [class.me]="user.name === currentUser">
+      <div class="rank">#{{i+1}}</div>
+      <div class="avatar-small">👤</div>
+      <div class="user-info">
+        <div class="name">{{user.name}}</div>
+        <div class="progress">
+          <div class="progress-fill" [style.width.%]="user.streak"></div>
+        </div>
+      </div>
+      <div class="streak">🔥 {{user.streak}}</div>
+    </div>
+  </div>
+
+</ion-content>
