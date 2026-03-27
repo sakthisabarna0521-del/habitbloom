@@ -1,6 +1,8 @@
 <app-header></app-header>
 <ion-content class="analytics-page">
 
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
+
   <div class="header">
     <h2>📊 Analytics & Progress</h2>
     <p>Track your growth journey</p>
@@ -10,6 +12,9 @@
     <h3>Today's Completion</h3>
     <div class="percentage">{{ completionPercentage }}%</div>
   </div>
+<div *ngIf="!isLoading && habits.length === 0" class="empty-state">
+  No habits data yet 📭
+</div>
 
   <div class="chart-row">
     <div class="chart-card">

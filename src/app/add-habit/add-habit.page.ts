@@ -20,30 +20,56 @@ export class AddHabitPage {
 
   constructor(private router: Router) {}
 
+  /* 🔥 added validation */
+  validateHabit() {
+    if (!this.habitName || !this.habitName.trim()) {
+      alert("Please enter a habit name");
+      return false;
+    }
+
+    if (!this.habitFrequency) {
+      alert("Please select frequency");
+      return false;
+    }
+
+    if (!this.plantType) {
+      alert("Please choose a plant");
+      return false;
+    }
+
+    return true;
+  }
+
   saveHabit() {
 
-  if (!this.habitName.trim()) return;
+    /* 🔥 added validation call */
+    if (!this.validateHabit()) return;
 
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
-  const habitKey = `habits_${user.email}`;
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-  const existing = JSON.parse(localStorage.getItem(habitKey) || '[]');
+    if (!user?.email) {
+      alert("User not found");
+      return;
+    }
 
-  const newHabit = {
-    id: Date.now(),
-    name: this.habitName,
-    description: this.habitDescription,
-    frequency: this.habitFrequency,
-    plant: this.plantType,
-    streak: 0,
-    stage: 1,
-    deletable: true,
-    userEmail: user.email
-  };
+    const habitKey = `habits_${user.email}`;
+    const existing = JSON.parse(localStorage.getItem(habitKey) || '[]');
 
-  existing.push(newHabit);
-  localStorage.setItem(habitKey, JSON.stringify(existing));
+    const newHabit = {
+      id: Date.now(),
+      name: this.habitName.trim(),
+      description: this.habitDescription.trim(),
+      frequency: this.habitFrequency,
+      plant: this.plantType,
+      streak: 0,
+      stage: 1,
+      deletable: true,
+      userEmail: user.email
+    };
 
-  this.router.navigateByUrl('/dashboard', { replaceUrl: true });
-}
+    existing.push(newHabit);
+    localStorage.setItem(habitKey, JSON.stringify(existing));
+
+    this.router.navigateByUrl('/dashboard', { replaceUrl: true });
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
@@ -20,47 +20,64 @@ interface Habit {
   standalone: true,
   imports: [IonicModule, CommonModule, HeaderComponent, FooterComponent]
 })
-export class AnalyticsPage implements AfterViewInit {
+export class AnalyticsPage implements AfterViewInit, OnDestroy {
 
   habits: Habit[] = [];
   totalCompletions = 0;
   completionPercentage = 0;
 
+  isLoading = true;
+
+  streakChart: any;
+  progressChart: any;
+
   ngAfterViewInit() {
     this.loadData();
-    this.createCharts();
+
+    setTimeout(() => {
+      this.createCharts();
+      this.isLoading = false;
+    }, 300);
   }
 
   loadData() {
+    try {
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
+      const habitKey = `habits_${user.email}`;
 
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const habitKey = `habits_${user.email}`;
+      const data = localStorage.getItem(habitKey);
+      this.habits = data ? JSON.parse(data) : [];
 
-    const data = localStorage.getItem(habitKey);
-    this.habits = data ? JSON.parse(data) : [];
+      const today = new Date().toLocaleDateString();
 
-    const today = new Date().toLocaleDateString();
+      this.totalCompletions =
+        this.habits.filter(h => h.lastCompleted === today).length;
 
-    this.totalCompletions =
-      this.habits.filter(h => h.lastCompleted === today).length;
+      const totalHabits = this.habits.length;
 
-    const totalHabits = this.habits.length;
+      this.completionPercentage =
+        totalHabits > 0
+          ? Math.round((this.totalCompletions / totalHabits) * 100)
+          : 0;
 
-    this.completionPercentage =
-      totalHabits > 0
-        ? Math.round((this.totalCompletions / totalHabits) * 100)
-        : 0;
+    } catch (e) {
+      console.error("Analytics load error", e);
+    }
   }
 
   createCharts() {
 
     if (this.habits.length === 0) return;
 
+    // 🔥 destroy old charts (important fix)
+    if (this.streakChart) this.streakChart.destroy();
+    if (this.progressChart) this.progressChart.destroy();
+
     const habitNames = this.habits.map(h => h.name);
     const streakData = this.habits.map(h => h.streak);
 
     // Streak Chart
-    new Chart("streakChart", {
+    this.streakChart = new Chart("streakChart", {
       type: 'bar',
       data: {
         labels: habitNames,
@@ -81,8 +98,8 @@ export class AnalyticsPage implements AfterViewInit {
       }
     });
 
-    // Completion Doughnut Chart
-    new Chart("progressChart", {
+    // Progress Chart
+    this.progressChart = new Chart("progressChart", {
       type: 'doughnut',
       data: {
         labels: ['Completed Today', 'Remaining'],
@@ -105,5 +122,10 @@ export class AnalyticsPage implements AfterViewInit {
         }
       }
     });
+  }
+
+  ngOnDestroy() {
+    if (this.streakChart) this.streakChart.destroy();
+    if (this.progressChart) this.progressChart.destroy();
   }
 }

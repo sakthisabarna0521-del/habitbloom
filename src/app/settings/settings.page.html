@@ -23,7 +23,9 @@
         </div>
       </div>
 
-      <button class="primary" (click)="saveProfile()">Save Changes</button>
+     <button class="primary" (click)="saveProfile()">
+  {{ isSaving ? 'Saving...' : 'Save Changes' }}
+</button>
     </div>
 
     <!-- PREFERENCES -->

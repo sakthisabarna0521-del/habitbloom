@@ -27,6 +27,7 @@ ion-content {
 .center-wrapper {
   width: 100%;
   max-width: 430px;
+  margin: auto; /* added */
 }
 
 .habit-card {
@@ -35,6 +36,7 @@ ion-content {
   padding: 25px;
   box-shadow: 0 15px 35px var(--shadow-soft);
   transition: 0.3s ease;
+  will-change: transform; /* added */
 }
 
 .habit-card:hover {
@@ -59,9 +61,17 @@ ion-content {
   transition: 0.2s ease;
 }
 
+/* 🔥 added focus UX */
+.custom-item:focus-within {
+  transform: scale(1.01);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
 ion-input,
 ion-textarea {
   color: var(--text-main);
+  font-size: 15px; /* added */
+  padding: 6px 4px; /* added */
 }
 
 ion-input:focus,
@@ -85,6 +95,10 @@ ion-textarea:focus {
   font-size: 14px;
   cursor: pointer;
   transition: 0.2s ease;
+}
+
+.chip:active { /* added */
+  transform: scale(0.95);
 }
 
 .chip.active {
@@ -112,6 +126,10 @@ ion-textarea:focus {
   border: 1px solid #eee;
 }
 
+.plant-card:active { /* added */
+  transform: scale(0.95);
+}
+
 .plant-card span {
   display: block;
   font-size: 12px;
@@ -137,64 +155,28 @@ ion-textarea:focus {
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
+.save-btn:active { /* added */
+  transform: scale(0.97);
+}
+
 .save-btn:hover {
   transform: translateY(-2px);
   opacity: 0.9;
 }
 
-/* DASHBOARD CARDS */
-.habit-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 25px var(--shadow-soft);
-  transition: 0.3s ease;
+/* Prevent overflow */
+ion-card-content {
+  overflow: hidden;
 }
 
-.habit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px var(--shadow-hover);
+/* Touch friendly */
+.chip,
+.plant-card,
+.save-btn {
+  min-height: 44px;
 }
 
-.card-header h2 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000;
-}
-
-.streak {
-  color: #444;
-  font-weight: 500;
-}
-
-/* Done Button */
-.done-btn {
-  width: 100%;
-  background: #000;
-  border-radius: 12px;
-  padding: 10px;
-  color: #fff;
-  font-weight: 600;
-  margin-top: 10px;
-  transition: 0.2s ease;
-}
-
-.done-btn:hover {
-  opacity: 0.85;
-}
-
-/* Bloom Section */
-.bloom-card {
-  min-width: 140px;
-  background: #fff;
-  border-radius: 18px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 8px 20px var(--shadow-soft);
-  transition: 0.3s ease;
-}
-
-.bloom-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px var(--shadow-hover);
+/* Textarea readability */
+ion-textarea {
+  line-height: 1.6;
 }

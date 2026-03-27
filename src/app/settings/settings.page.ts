@@ -23,6 +23,8 @@ export class SettingsPage {
   reminders = false;
   reminderTime = '';
 
+  isSaving = false;
+
   constructor(
     private router: Router,
     private alertCtrl: AlertController
@@ -30,31 +32,61 @@ export class SettingsPage {
     this.loadData();
   }
 
-  /* ================= LOAD ================= */
-
-  loadData() {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      this.user = JSON.parse(storedUser);
-    }
-
-    this.darkMode = JSON.parse(localStorage.getItem('darkMode') || 'false');
-    this.reminders = JSON.parse(localStorage.getItem('reminders') || 'false');
-    this.reminderTime = localStorage.getItem('reminderTime') || '';
-
-    document.body.classList.toggle('dark-theme', this.darkMode);
+  ionViewWillEnter() {
+    this.loadData(); // 🔥 refresh when re-enter
   }
 
-  /* ================= PROFILE ================= */
+  /*  LOAD  */
+
+  loadData() {
+    try {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        this.user = JSON.parse(storedUser);
+      }
+
+      this.darkMode = JSON.parse(localStorage.getItem('darkMode') || 'false');
+      this.reminders = JSON.parse(localStorage.getItem('reminders') || 'false');
+      this.reminderTime = localStorage.getItem('reminderTime') || '';
+
+      document.body.classList.toggle('dark-theme', this.darkMode);
+
+    } catch (e) {
+      console.error("Settings load error", e);
+    }
+  }
+
+  /* PROFILE  */
 
   saveProfile() {
-    localStorage.setItem('user', JSON.stringify(this.user));
-    window.alert('Profile updated successfully!');
+
+    if (!this.user.name?.trim()) {
+      alert("Name cannot be empty");
+      return;
+    }
+
+    if (!this.user.email?.includes('@')) {
+      alert("Enter valid email");
+      return;
+    }
+
+    this.isSaving = true;
+
+    setTimeout(() => {
+      localStorage.setItem('user', JSON.stringify(this.user));
+      this.isSaving = false;
+      window.alert('Profile updated successfully!');
+    }, 300);
   }
 
   onImageSelect(event: any) {
     const file = event.target.files[0];
     if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert("Only images allowed");
+      return;
+    }
 
     const reader = new FileReader();
     reader.onload = () => {
@@ -69,21 +101,21 @@ export class SettingsPage {
     localStorage.setItem('user', JSON.stringify(this.user));
   }
 
-  /* ================= DARK MODE ================= */
+  /*  DARK MODE  */
 
   toggleDarkMode() {
     document.body.classList.toggle('dark-theme', this.darkMode);
     localStorage.setItem('darkMode', JSON.stringify(this.darkMode));
   }
 
-  /* ================= REMINDERS ================= */
+  /*  REMINDERS  */
 
   saveReminders() {
     localStorage.setItem('reminders', JSON.stringify(this.reminders));
     localStorage.setItem('reminderTime', this.reminderTime);
   }
 
-  /* ================= PASSWORD ================= */
+  /* PASSWORD  */
 
   async changePassword() {
 
@@ -120,7 +152,7 @@ export class SettingsPage {
     await alertBox.present();
   }
 
-  /* ================= DELETE HABITS ================= */
+  /*  DELETE HABITS  */
 
   deleteAllHabits() {
     const email = this.user.email;
@@ -128,9 +160,10 @@ export class SettingsPage {
     window.alert('All habits deleted');
   }
 
+  /*  LOGOUT  */
+
   logout() {
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
-
 }

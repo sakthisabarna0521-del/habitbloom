@@ -4,7 +4,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* ===== HEADER ===== */
+/*  HEADER */
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -21,7 +21,7 @@
   }
 }
 
-/* ===== TODAY'S COMPLETION ===== */
+/* TODAY'S COMPLETION */
 .progress-card {
   background: #000;
   color: #fff;
@@ -42,7 +42,7 @@
   }
 }
 
-/* ===== CHARTS ROW ===== */
+/* CHARTS ROW  */
 .chart-row {
   display: flex;
   flex-direction: row;
@@ -51,7 +51,7 @@
   flex-wrap: wrap;
 }
 
-/* ===== CHART CARD ===== */
+/* CHART CARD */
 .chart-card {
   flex: 1 1 45%;
   background: #f5f5f5;
@@ -68,4 +68,11 @@
   canvas {
     max-height: 200px;
   }
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+  font-size: 14px;
 }

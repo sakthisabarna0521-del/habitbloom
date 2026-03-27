@@ -1,5 +1,7 @@
 <ion-content class="streak-content">
 
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
+
   <div class="page">
 
     <h2>🔥 Streak Analytics</h2>
@@ -24,9 +26,9 @@
 
     </div>
 
-    <div *ngIf="habits.length === 0" class="empty">
-      No habits found 🌱
-    </div>
+    <div *ngIf="!isLoading && habits.length === 0" class="empty">
+  No habits found 🌱
+</div>
 
     <!-- Habit Cards -->
     <div class="streak-grid">

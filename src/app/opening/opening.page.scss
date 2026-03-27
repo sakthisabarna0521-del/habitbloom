@@ -393,3 +393,120 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* 1. PERFECT GLOBAL TYPOGRAPHY */
+h1, h2, h3, h4 {
+  letter-spacing: -0.4px;
+}
+
+p {
+  line-height: 1.75;
+}
+
+/* 2. SECTION CONSISTENCY (VERY IMPORTANT) */
+.features,
+.growth-preview,
+.cta-section,
+.testimonial {
+  padding: 110px 10%;
+}
+
+/* 3. HERO PERFECT BALANCE */
+.hero {
+  gap: 90px;
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+/* 4. HERO IMAGE SAFETY */
+.hero-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+/* 5. HERO STATS CLEAN ALIGNMENT */
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 6. FEATURE GRID PERFECT RESPONSIVE */
+.feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* 7. FEATURE CARD PREMIUM ALIGNMENT */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.feature-card p {
+  flex-grow: 1;
+}
+
+/* 8. SMOOTH MICRO INTERACTIONS */
+.feature-card {
+  transition: all 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 9. BUTTON FEEDBACK */
+.primary-btn:active {
+  transform: scale(0.96);
+}
+
+/* 10. IMAGE RENDERING FIX (SHARPNESS) */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 11. AI BUTTON UX IMPROVEMENT */
+.ai-float-btn {
+  cursor: pointer;
+}
+
+.ai-floating-card {
+  width: 280px;
+}
+
+/* 12. MOBILE PERFECTION (CRITICAL) */
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-stats div {
+    align-items: center;
+  }
+
+  .growth-stages {
+    flex-wrap: wrap;
+  }
+
+  .evolution-path {
+    flex-direction: column;
+  }
+
+}
+
+/* 13. EXTRA PREMIUM TOUCH (SUBTLE) */
+.feature-card,
+.stage,
+.testimonial-card {
+  will-change: transform;
+}

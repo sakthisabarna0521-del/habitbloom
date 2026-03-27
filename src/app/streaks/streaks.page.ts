@@ -23,32 +23,53 @@ export class StreaksPage implements OnInit {
   bestHabit = '';
   longestStreak = 0;
 
+  isLoading = true;
+
   ngOnInit() {
-    this.loadHabits();
-    this.calculateOverallStats();
+    this.init();
+  }
+
+  ionViewWillEnter() {
+    this.init(); // 🔥 refresh when coming back
+  }
+
+  init() {
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.loadHabits();
+      this.calculateOverallStats();
+      this.isLoading = false;
+    }, 200);
   }
 
   loadHabits() {
 
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    try {
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-    if (!user.email) {
+      if (!user.email) {
+        this.habits = [];
+        return;
+      }
+
+      const habitKey = `habits_${user.email}`;
+      const data = localStorage.getItem(habitKey);
+
+      this.habits = data ? JSON.parse(data) : [];
+
+      // ensure safe data
+      this.habits.forEach(h => {
+        if (!h.history) h.history = [];
+        if (!h.streak) h.streak = 0;
+      });
+
+      this.totalHabits = this.habits.length;
+
+    } catch (e) {
+      console.error("Streak load error", e);
       this.habits = [];
-      return;
     }
-
-    const habitKey = `habits_${user.email}`;
-    const data = localStorage.getItem(habitKey);
-
-    this.habits = data ? JSON.parse(data) : [];
-
-    // ensure history exists
-    this.habits.forEach(h => {
-      if (!h.history) h.history = [];
-      if (!h.streak) h.streak = 0;
-    });
-
-    this.totalHabits = this.habits.length;
   }
 
   calculateOverallStats() {
@@ -67,5 +88,4 @@ export class StreaksPage implements OnInit {
   getRecentDays(history: string[] = []) {
     return history.slice(-7).reverse();
   }
-
 }
