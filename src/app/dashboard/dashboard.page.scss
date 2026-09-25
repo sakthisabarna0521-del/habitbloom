@@ -490,3 +490,138 @@
   color: red;
   font-weight: 600;
 }
+
+
+/* ================================
+   DASHBOARD TEXT COLOR FIX
+   ================================ */
+
+/* Main dashboard */
+.dashboard-container {
+  background: #f0f0f0;
+  color: #222222;
+}
+
+/* Top navigation */
+.top-nav {
+  background: #1c1c1c;
+  color: #ffffff;
+}
+
+.logo {
+  color: #ffffff !important;
+}
+
+.nav-links p {
+  color: #ffffff !important;
+}
+
+.nav-links ion-icon {
+  color: #ffffff !important;
+}
+
+/* Stats cards */
+.stats .card {
+  background: #ffffff;
+  color: #222222;
+}
+
+.stats .card h4 {
+  color: #555555 !important;
+}
+
+.stats .card p {
+  color: #111111 !important;
+}
+
+/* Habit cards */
+.habit-card {
+  background: #ffffff;
+  color: #222222;
+}
+
+.habit-card h3 {
+  color: #111111 !important;
+}
+
+.habit-card .description {
+  color: #333333 !important;
+}
+
+.habit-card .frequency {
+  color: #111111 !important;
+}
+
+.habit-card .streak {
+  color: #333333 !important;
+}
+
+/* Completed text */
+.habit-card .completed {
+  color: #008000 !important;
+}
+
+.habit-card .completed ion-icon {
+  color: #008000 !important;
+}
+
+/* Action icons */
+.done-btn,
+.done-btn ion-icon {
+  color: #ffffff !important;
+}
+
+.delete-btn {
+  background: #ffffff;
+  color: #000000 !important;
+}
+
+.delete-btn ion-icon {
+  color: #000000 !important;
+}
+
+.actions button ion-icon {
+  color: inherit;
+}
+
+/* Profile dropdown */
+.dropdown-menu {
+  background: #ffffff;
+  color: #111111;
+}
+
+.user-info strong {
+  color: #111111 !important;
+}
+
+.user-info p {
+  color: #444444 !important;
+}
+
+.user-info small {
+  color: #555555 !important;
+}
+
+.dropdown-menu p {
+  color: #222222 !important;
+}
+
+.dropdown-menu p ion-icon {
+  color: #222222 !important;
+}
+
+.dropdown-menu .logout-item,
+.dropdown-menu .logout-item ion-icon {
+  color: red !important;
+}
+
+/* Undo bar */
+.undo-bar {
+  background: #000000;
+  color: #ffffff !important;
+}
+
+.undo-bar button {
+  background: #ffffff;
+  color: #000000 !important;
+}

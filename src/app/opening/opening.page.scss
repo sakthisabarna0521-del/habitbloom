@@ -354,6 +354,14 @@
   animation: fadeIn 0.3s ease;
 }
 
+.ai-floating-card,
+.ai-floating-card h3,
+.ai-floating-card p,
+.ai-floating-card span,
+.ai-floating-card strong {
+  color: #ffffff;
+}
+
 .ai-floating-card h3 {
   margin-bottom: 10px;
   font-size: 18px;
@@ -367,10 +375,16 @@
 
 .suggestion-box {
   background: #1f2937;
+  color: #ffffff;
   padding: 8px;
   border-radius: 10px;
   margin-bottom: 10px;
   font-size: 13px;
+}
+
+.suggestion-box p,
+.suggestion-box strong {
+  color: #ffffff;
 }
 
 .mood-section button {

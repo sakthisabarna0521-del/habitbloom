@@ -1,5 +1,5 @@
 .login-wrapper {
-  --background: #f4f6f9;
+  --background: #ffffff;
 }
 
 /* Split Layout */
@@ -86,11 +86,28 @@
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
+.login-card h2 {
+  color: #111827 !important;
+}
+
 /* Inputs */
 ion-item {
   --background: #f1f5f9;
+  --color: #1e293b;
   border-radius: 12px;
   margin-bottom: 20px;
+}
+
+ion-label {
+  --color: #475569 !important;
+  color: #475569 !important;
+}
+
+ion-input {
+  --color: #1e293b !important;
+  --placeholder-color: #64748b !important;
+  --highlight-color-focused: #111827;
+  color: #1e293b !important;
 }
 
 /* Button */
@@ -113,15 +130,23 @@ ion-item {
     flex-direction: column;
   }
 
-  .left-panel {
-    height: 40%;
-  }
+ .left-panel {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff;
+}
 
   .right-panel {
     height: 60%;
   }
 }
 
+.left-panel .dynamic-text {
+  color: #ffffff !important;
+}
+
+.left-panel .subtitle {
+  color: #ffffff !important;
+}
 
 /* =======================
    Custom Sweet Popup
@@ -245,4 +270,56 @@ ion-item {
 
 .swal-popup-front {
   z-index: 99999 !important;
+}
+
+
+.login-wrapper {
+  --background: #ffffff;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.login-card h2 {
+  color: #111827 !important;
+}
+
+ion-item {
+  --background: #f1f5f9;
+  --color: #1e293b;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+ion-label {
+  --color: #475569 !important;
+  color: #475569 !important;
+}
+
+ion-input {
+  --color: #1e293b !important;
+  --placeholder-color: #64748b !important;
+  color: #1e293b !important;
+}
+
+.login-btn {
+  --background: #111827;
+  --color: #ffffff;
+  --border-radius: 12px;
+  height: 50px;
+  font-weight: 600;
 }

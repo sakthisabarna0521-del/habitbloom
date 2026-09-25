@@ -32,6 +32,9 @@ ion-content {
 
 .habit-card {
   background: var(--card-bg);
+   --background: #ffffff;
+  --color: #111111;
+
   border-radius: var(--radius-main);
   padding: 25px;
   box-shadow: 0 15px 35px var(--shadow-soft);
@@ -39,10 +42,13 @@ ion-content {
   will-change: transform; /* added */
 }
 
-.habit-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 45px var(--shadow-hover);
+/* CARD TITLE */
+.habit-card ion-card-title {
+  color: #111111 !important;
+  font-size: 24px;
+  font-weight: 700;
 }
+
 
 /* Section Title */
 .section-label {
@@ -52,28 +58,45 @@ ion-content {
   color: var(--text-main);
 }
 
-/* Inputs */
+/* INPUT ITEMS */
 .custom-item {
   --background: #f3f4f6;
+  --color: #111111;
+
   border-radius: 14px;
   margin-bottom: 15px;
   padding: 4px 8px;
   transition: 0.2s ease;
 }
 
-/* 🔥 added focus UX */
 .custom-item:focus-within {
   transform: scale(1.01);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-ion-input,
-ion-textarea {
-  color: var(--text-main);
-  font-size: 15px; /* added */
-  padding: 6px 4px; /* added */
+/* INPUT TEXT */
+.custom-item ion-input {
+  --color: #111111 !important;
+  --placeholder-color: #666666 !important;
+
+  color: #111111 !important;
+  font-size: 15px;
+  padding: 6px 4px;
 }
 
+/* TEXTAREA TEXT */
+.custom-item ion-textarea {
+  --color: #111111 !important;
+  --placeholder-color: #666666 !important;
+
+  color: #111111 !important;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 6px 4px;
+}
+
+
+/* INPUT FOCUS */
 ion-input:focus,
 ion-textarea:focus {
   --background: #eaecef;
@@ -92,18 +115,20 @@ ion-textarea:focus {
   border-radius: 30px;
   border: 1px solid #ddd;
   background: #fafafa;
+  color: #111111;
+
   font-size: 14px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
-.chip:active { /* added */
+.chip:active {
   transform: scale(0.95);
 }
 
 .chip.active {
-  background: #000;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
   border: none;
 }
 
@@ -117,6 +142,8 @@ ion-textarea:focus {
 .plant-card {
   flex: 1;
   background: #f9f9f9;
+  color: #111111;
+
   border-radius: 18px;
   padding: 16px 0;
   text-align: center;
@@ -126,7 +153,7 @@ ion-textarea:focus {
   border: 1px solid #eee;
 }
 
-.plant-card:active { /* added */
+.plant-card:active {
   transform: scale(0.95);
 }
 
@@ -134,28 +161,34 @@ ion-textarea:focus {
   display: block;
   font-size: 12px;
   margin-top: 6px;
-  color: var(--text-light);
+  color: #666666 !important;
 }
 
 .plant-card.selected {
-  background: #000;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
   border: none;
   transform: translateY(-4px);
 }
 
+.plant-card.selected span {
+  color: #ffffff !important;
+}
+
 /* SAVE BUTTON */
 .save-btn {
-  --background: #000;
+  --background: #000000;
+  --color: #ffffff;
   --border-radius: 14px;
+
   height: 50px;
   font-weight: 600;
   font-size: 15px;
   transition: 0.2s ease;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.save-btn:active { /* added */
+.save-btn:active {
   transform: scale(0.97);
 }
 
@@ -163,6 +196,7 @@ ion-textarea:focus {
   transform: translateY(-2px);
   opacity: 0.9;
 }
+
 
 /* Prevent overflow */
 ion-card-content {
